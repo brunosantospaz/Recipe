@@ -1,35 +1,38 @@
+
+
 <div class="recipe recipe-list-item">
     <div class="recipe-cover"> <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="temporario">
     </div>
     <div class="recipe-title-container">
-        <h2 class="recipes-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+        <h2 class="recipes-title">{{ recipe.title}}</h2>
     </div>
 
     <div class="recipe-author">
         <span class="recipes-author-item">
             <i class="fa-sharp fa-solid fa-user"></i>
-        Bruno Santos
+        {{ recipe.author.first_name }} {{recipe.author.last_name}}
         </span>
         <span class="recipe-author-item">
             <i class="fa-sharp fa-solid fa-calendar-days"></i>
-            18/01/2023 as 20:18
+            {{recipe.created_at|date:"d/m/Y"}} às {{ recipe.created_at|date:"H:i" }}
         </span>
         <span class="recipe-author-item">
-             <a href=""><i class="fa-sharp fa-solid fa-layer-group"></i> Cafe da Manha</a> 
-             </span>
+             <a href=""><i class="fa-sharp fa-solid fa-layer-group"></i><span>{{recipe.category.name}}</span>
+             </a> 
+        </span>
     </div>
     <div class="recipe-content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, enim?
+        <p>{{recipe.description}}
         </p>
     </div>
     <div class="recipe-meta-container">
         <div class="recipe-meta precipe-pnreparatio">
             <h3 class="recipe-meta-title"><i class="fa-sharp fa-solid fa-stopwatch"></i> Preparo</h3>
-            <div class="recipe-meta-text">0 Minutos</div>
+            <div class="recipe-meta-text">{{ recipe.preparation_time }} {{recipe.preparation_time_unit}}</div>
         </div>
         <div class="recipe-meta recipe-servings">
             <h3 class="recipe-meta-title"><i class="fa-sharp fa-solid fa-pizza-slice"></i> Porções</h3>
-            <div class="recipe-meta-text">0 Porções</div>
+            <div class="recipe-meta-text">{{ recipe.servings }} {{ recipe.serbvings_unit }}</div>
         </div>
     </div>
     <footer class="recipe-footer">
