@@ -156,6 +156,12 @@ h1,h2,h3,h4,h5,h6 {
 .recipe-title-container {
     padding: var(--spacing-gutter-medium);
     padding-bottom: 2rem;
+    
+    
+}
+.recipe-title-container a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
 }
 .recipe-author {
     padding: 0 var(--spacing-gutter-medium);
