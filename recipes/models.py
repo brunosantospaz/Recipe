@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 class category(models.Model):
     name = models.CharField(max_length=65)
 
-
+    def __str__(self):
+        return self.name
 
 class recipe(models.Model):
     title = models.CharField(max_length=65)
