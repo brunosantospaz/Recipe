@@ -24,6 +24,12 @@ class recipe(models.Model):
     category = models.ForeignKey(category, on_delete=models.SET_NULL, null = True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null = True)
 
+
+    def __str__(self):
+        return self.title
+
+
+
 #EDITED
 #title desciption slug
 #preparation_time preparation_time_unit
