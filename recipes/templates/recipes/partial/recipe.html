@@ -12,14 +12,18 @@
     <div class="recipe-author">
         <span class="recipes-author-item">
             <i class="fa-sharp fa-solid fa-user"></i>
-        {{ recipe.author.first_name }} {{recipe.author.last_name}}
+            {% if recipe.author.first_name %} 
+                {{recipe.author.first_name}} {{recipe.author.last_name}}
+            {% else %}
+                {{recipe.author.username}}
+            {% endif %}
         </span>
         <span class="recipe-author-item">
-            <i class="fa-sharp fa-solid fa-calendar-days"></i>
-            {{recipe.created_at|date:"d/m/Y"}} às {{ recipe.created_at|date:"H:i" }}
+            <i class="fas fa-calendar-alt"></i>
+            {{ recipe.created_at|date:"d/m/Y" }}
         </span>
         <span class="recipe-author-item">
-             <a href=""><i class="fa-sharp fa-solid fa-layer-group"></i><span>{{recipe.category.name}}</span>
+             <a href="{% url 'recipes:category' recipe.category.id %}"><i class="fa-sharp fa-solid fa-layer-group"></i><span>{{recipe.category.name}}</span>
              </a> 
         </span>
     </div>
